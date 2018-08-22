@@ -1,22 +1,24 @@
 package org.radekbor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "Event")
+@Table(name = "EVENTS")
 public class Event {
 
     @Id
-    private long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String log;
 
     @ManyToOne
     private Person person;
 
-    public Event(long id) {
+    @Enumerated(EnumType.STRING)
+    private EventLevel eventLevel;
+
+    public Event(int id) {
         this.id = id;
     }
 
@@ -38,5 +40,26 @@ public class Event {
 
     public void setLog(String log) {
         this.log = log;
+    }
+
+    public EventLevel getEventLevel() {
+        return eventLevel;
+    }
+
+    public void setEventLevel(EventLevel eventLevel) {
+        this.eventLevel = eventLevel;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("Event(level=%s, log=%s)", this.eventLevel, this.log);
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

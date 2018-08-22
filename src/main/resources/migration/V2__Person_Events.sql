@@ -1,5 +1,6 @@
-create table Events (
-    ID INT PRIMARY KEY,
-    PERSON_ID INT,
-    LOG VARCHAR (255)
+create table events (
+    id INT PRIMARY KEY,
+    person_id INT,
+    event_level VARCHAR(10),
+    log VARCHAR (255)
 );

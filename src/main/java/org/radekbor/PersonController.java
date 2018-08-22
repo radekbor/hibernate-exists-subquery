@@ -41,22 +41,4 @@ public class PersonController {
         return eventRepository.findAllWithEvent();
     }
 
-    @PostConstruct
-    public void insert() {
-        Person person1 = new Person(1);
-        person1.setFirstName("John");
-        person1.setLastName("Doe");
-        personRepository.save(person1);
-
-        Person person2 = new Person(2);
-        person2.setFirstName("Jane");
-        person2.setLastName("Doe");
-        personRepository.save(person2);
-
-        Event event = new Event(1);
-        event.setPerson(person1);
-        event.setLog("Hello");
-        eventRepository.save(event);
-    }
-
 }

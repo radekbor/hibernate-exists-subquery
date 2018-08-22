@@ -1,9 +1,5 @@
 flyway:
-  enabled: true
-  locations: classpath:migration
-
-logging.level.org.flywaydb: debug
-
+  locations: classpath:migration,classpath:fakedata
 
 spring:
   datasource:
@@ -18,3 +14,5 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: validate
+logging.level.org.flywaydb: debug
+
